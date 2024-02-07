@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import youtubeThumbnail from "youtube-thumbnail";
 import { FaCheck } from "react-icons/fa";
 
@@ -10,19 +10,8 @@ const Homepage = () => {
       monthName: "June",
       videos: [
         {
-          name: "https://youtu.be/60tjWtmZ2AQ",
-          url: "https://youtu.be/60tjWtmZ2AQ",
-        },
-        {
-          name: "https://youtu.be/sKkMXGFI854",
-          url: "https://youtu.be/sKkMXGFI854",
-        }, {
           name: "https://youtu.be/UhFW3VreGJg",
           url: "https://youtu.be/UhFW3VreGJg",
-        },
-        {
-          name: "https://youtu.be/SXZGzp2IPlo",
-          url: "https://youtu.be/SXZGzp2IPlo",
         },
       ],
     },
@@ -30,19 +19,58 @@ const Homepage = () => {
       monthName: "July",
       videos: [
         {
-          name: "https://youtu.be/60tjWtmZ2AQ",
-          url: "https://youtu.be/60tjWtmZ2AQ",
+          name: "https://youtu.be/9HlnPGdYD1M",
+          url: "https://youtu.be/9HlnPGdYD1M",
         },
+      ],
+    },
+    {
+      monthName: "August",
+      videos: [
         {
-          name: "https://youtu.be/sKkMXGFI854",
-          url: "https://youtu.be/sKkMXGFI854",
-        }, {
-          name: "https://youtu.be/UhFW3VreGJg",
-          url: "https://youtu.be/UhFW3VreGJg",
+          name: "https://youtu.be/9SRUAPDVd90",
+          url: "https://youtu.be/9SRUAPDVd90",
         },
+      ],
+    },
+    {
+      monthName: "September",
+      videos: [
         {
-          name: "https://youtu.be/SXZGzp2IPlo",
-          url: "https://youtu.be/SXZGzp2IPlo",
+          name: "https://youtu.be/wKi10v0KCOQ",
+          url: "https://youtu.be/wKi10v0KCOQ",
+        },
+      ],
+    },    {
+      monthName: "October",
+      videos: [
+        {
+          name: "https://youtu.be/eEhabE9F_gw",
+          url: "https://youtu.be/eEhabE9F_gw",
+        },
+      ],
+    },    {
+      monthName: "November",
+      videos: [
+        {
+          name: "https://youtu.be/PH-LT3sx5KQ",
+          url: "https://youtu.be/PH-LT3sx5KQ",
+        },
+      ],
+    },    {
+      monthName: "December",
+      videos: [
+        {
+          name: "https://youtu.be/Dh-w642QOTw",
+          url: "https://youtu.be/Dh-w642QOTw",
+        },
+      ],
+    },    {
+      monthName: "January",
+      videos: [
+        {
+          name: "https://youtu.be/BZlMDjQMwBg",
+          url: "https://youtu.be/BZlMDjQMwBg",
         },
       ],
     },
@@ -67,10 +95,6 @@ const Homepage = () => {
     }),
   }));
 
-  console.log(thumbnailData, "THumbnail data")
-  const showPreview = () => {
-    alert("hello");
-  };
 
   const handleSelectVideo = (videoId, monthName) => {
     setSelectedVideos((prevSelectedVideos) => {
@@ -120,9 +144,9 @@ const Homepage = () => {
       <div className="flex justify-center items-center py-5" >
         <h1 className="flex text-[34px] font-bold" >Select Videos</h1>
       </div>
-      <div className="grid grid-cols-2">
+      <div className="grid grid-cols-1 md:grid-cols-2">
         {thumbnailData.map((item) => (
-          <div key={item.monthName} className="p-4">
+          <div key={item.monthName} className="p-4 cursor-pointer" >
             <h3 className="mb-2" >Month: {item.monthName}</h3>
             <div className="flex flex-col wrap ">
               {item.data.map((ele) => (
@@ -153,7 +177,8 @@ const Homepage = () => {
       </div>
       <div className="flex justify-center" >
         <button
-          className="border px-4 py-3 bg-[darkblue] text-white font-bold rounded mt-10 hover:bg-[#001F63]"
+            disabled={selectedVideos.length === 0}
+          className="border px-4 py-3 bg-[darkblue] text-white font-bold rounded mt-10 hover:bg-[#001F63] disabled:bg-[gray] disabled:opacity-[70%]"
           onClick={() => {
             navigate("/player", { state: selectedVideos });
           }}
