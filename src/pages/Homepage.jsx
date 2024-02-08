@@ -2,79 +2,10 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import youtubeThumbnail from "youtube-thumbnail";
 import { FaCheck } from "react-icons/fa";
+import {data} from "../config";
 
 const Homepage = () => {
   const navigate = useNavigate();
-  const data = [
-    {
-      monthName: "June",
-      videos: [
-        {
-          name: "https://youtu.be/UhFW3VreGJg",
-          url: "https://youtu.be/UhFW3VreGJg",
-        },
-      ],
-    },
-    {
-      monthName: "July",
-      videos: [
-        {
-          name: "https://youtu.be/9HlnPGdYD1M",
-          url: "https://youtu.be/9HlnPGdYD1M",
-        },
-      ],
-    },
-    {
-      monthName: "August",
-      videos: [
-        {
-          name: "https://youtu.be/9SRUAPDVd90",
-          url: "https://youtu.be/9SRUAPDVd90",
-        },
-      ],
-    },
-    {
-      monthName: "September",
-      videos: [
-        {
-          name: "https://youtu.be/wKi10v0KCOQ",
-          url: "https://youtu.be/wKi10v0KCOQ",
-        },
-      ],
-    },    {
-      monthName: "October",
-      videos: [
-        {
-          name: "https://youtu.be/eEhabE9F_gw",
-          url: "https://youtu.be/eEhabE9F_gw",
-        },
-      ],
-    },    {
-      monthName: "November",
-      videos: [
-        {
-          name: "https://youtu.be/PH-LT3sx5KQ",
-          url: "https://youtu.be/PH-LT3sx5KQ",
-        },
-      ],
-    },    {
-      monthName: "December",
-      videos: [
-        {
-          name: "https://youtu.be/Dh-w642QOTw",
-          url: "https://youtu.be/Dh-w642QOTw",
-        },
-      ],
-    },    {
-      monthName: "January",
-      videos: [
-        {
-          name: "https://youtu.be/BZlMDjQMwBg",
-          url: "https://youtu.be/BZlMDjQMwBg",
-        },
-      ],
-    },
-  ];
 
   // State to keep track of selected videos
   const [selectedVideos, setSelectedVideos] = useState([]);
@@ -95,14 +26,13 @@ const Homepage = () => {
     }),
   }));
 
-
   const handleSelectVideo = (videoId, monthName) => {
     setSelectedVideos((prevSelectedVideos) => {
       const isSelected = prevSelectedVideos.some(
-        (video) => video.id === videoId
+        (video) => video.id === videoId,
       );
       const isSameMonthSelected = prevSelectedVideos.some(
-        (video) => video.monthName === monthName
+        (video) => video.monthName === monthName,
       );
 
       // Deselect if already selected
@@ -118,10 +48,10 @@ const Homepage = () => {
                 ? thumbnailData
                     .flatMap((item) => item.data)
                     .find((video) => video.id === videoId)
-                : video
+                : video,
             )
             .filter(
-              (video) => video.monthName !== monthName || video.id === videoId
+              (video) => video.monthName !== monthName || video.id === videoId,
             );
         } else {
           // Add new selection if total selected videos are less than 2 and not from the same month
@@ -141,13 +71,13 @@ const Homepage = () => {
 
   return (
     <div>
-      <div className="flex justify-center items-center py-5" >
-        <h1 className="flex text-[34px] font-bold" >Select Videos</h1>
+      <div className="flex p-4 items-center px-5">
+        <h1 className="flex text-[24px] font-bold">Select Videos</h1>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2">
         {thumbnailData.map((item) => (
-          <div key={item.monthName} className="p-4 cursor-pointer" >
-            <h3 className="mb-2" >Month: {item.monthName}</h3>
+          <div key={item.monthName} className="p-4 cursor-pointer">
+            <h3 className="mb-2">Month: {item.monthName}</h3>
             <div className="flex flex-col wrap ">
               {item.data.map((ele) => (
                 <div
@@ -155,12 +85,11 @@ const Homepage = () => {
                   onClick={() => handleSelectVideo(ele.id, ele.monthName)}
                   className="flex p-2 w-full border-y gap-3 items-center hover:bg-[#CFCBC0]"
                 >
-
-                    <div
-                        className=" border h-[20px] w-[20px] text-white"
-                    >
-                      {selectedVideos.some((video) => video.id === ele.id) && (  <FaCheck color={"blue"} />)}
-                    </div>
+                  <div className=" border h-[20px] w-[20px] text-white">
+                    {selectedVideos.some((video) => video.id === ele.id) && (
+                      <FaCheck color={"blue"} />
+                    )}
+                  </div>
 
                   <img
                     src={ele.thumbnail}
@@ -175,15 +104,15 @@ const Homepage = () => {
           </div>
         ))}
       </div>
-      <div className="flex justify-center" >
+      <div className="flex justify-end mx-10">
         <button
-            disabled={selectedVideos.length === 0}
-          className="border px-4 py-3 bg-[darkblue] text-white font-bold rounded mt-10 hover:bg-[#001F63] disabled:bg-[gray] disabled:opacity-[70%]"
+          disabled={selectedVideos.length === 0}
+          className="border min-w-[150px] px-4 py-3 bg-[darkblue] text-white font-bold rounded mt-10 hover:bg-[#001F63] disabled:bg-[gray] disabled:opacity-[70%]"
           onClick={() => {
             navigate("/player", { state: selectedVideos });
           }}
         >
-          Go to comparison
+          Watch
         </button>
       </div>
     </div>
