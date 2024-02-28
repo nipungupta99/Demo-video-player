@@ -8,7 +8,7 @@ export const data = [
         monthName: "June",
         videos: [
             {
-                name: "NRF June Survey",
+                name: "NFR June Survey",
                 url: "https://youtu.be/yDnKwiPu3rQ",
             },
         ],
@@ -17,7 +17,7 @@ export const data = [
         monthName: "July",
         videos: [
             {
-                name: "NRF July Survey",
+                name: "NFR July Survey",
                 url: "https://youtu.be/9HlnPGdYD1M",
             },
         ],
@@ -26,7 +26,7 @@ export const data = [
         monthName: "August",
         videos: [
             {
-                name: "NRF August Survey",
+                name: "NFR August Survey",
                 url: "https://youtu.be/9SRUAPDVd90",
             },
         ],
@@ -35,7 +35,7 @@ export const data = [
         monthName: "September",
         videos: [
             {
-                name: "NRF September Survey",
+                name: "NFR September Survey",
                 url: "https://youtu.be/wKi10v0KCOQ",
             },
         ],
@@ -44,7 +44,7 @@ export const data = [
         monthName: "October",
         videos: [
             {
-                name: "NRF October Survey",
+                name: "NFR October Survey",
                 url: "https://youtu.be/eEhabE9F_gw",
             },
         ],
@@ -53,7 +53,7 @@ export const data = [
         monthName: "November",
         videos: [
             {
-                name: "NRF November Survey",
+                name: "NFR November Survey",
                 url: "https://youtu.be/PH-LT3sx5KQ",
             },
         ],
@@ -62,7 +62,7 @@ export const data = [
         monthName: "December",
         videos: [
             {
-                name: "NRF December Survey",
+                name: "NFR December Survey",
                 url: "https://youtu.be/Dh-w642QOTw",
             },
         ],
@@ -71,7 +71,7 @@ export const data = [
         monthName: "January",
         videos: [
             {
-                name: "NRF January Survey",
+                name: "NFR January Survey",
                 url: "https://youtu.be/BZlMDjQMwBg",
             },
         ],

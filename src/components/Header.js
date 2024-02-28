@@ -1,4 +1,5 @@
 import React from 'react';
+import RailLogo from '../railways-logo.png'
 
 const Header = () => {
     const login = localStorage.getItem('isLogin')
@@ -7,7 +8,8 @@ const Header = () => {
         window.location.reload();
     }
     return (
-       <div className="p-4 bg-black text-white shadow grid grid-cols-1 sm:flex justify-between items-center gap-4" >
+       <div className="p-4 py-2 bg-black text-white shadow grid grid-cols-1 sm:flex justify-between items-center gap-4" >
+           <img src={RailLogo} width="90px" />
             <div className="flex flex-col justify-start" >
                <h1 className=" text-[26px] sm:text-[32px] font-bold" >NFR BG Rail Line Project</h1>
                 <h2 className="text-[14px]">
