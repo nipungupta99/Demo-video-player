@@ -76,4 +76,13 @@ export const data = [
             },
         ],
     },
+    {
+        monthName: "Feburary",
+        videos: [
+            {
+                name: "NFR Feburary Survey",
+                url: "https://youtu.be/i_cRe5OmDuM",
+            },
+        ],
+    },
 ];
