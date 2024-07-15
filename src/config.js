@@ -112,4 +112,13 @@ export const data = [
             },
         ],
     },
+    {
+        monthName: "June 2024",
+        videos: [
+            {
+                name: "NFR June Survey",
+                url: "https://youtu.be/qbI-pqxlx0M",
+            },
+        ],
+    },
 ];
